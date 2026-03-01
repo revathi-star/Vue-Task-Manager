@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Task Manager</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <style>
+        .done{
+            text-decoration: line-through;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <label for="task">Enter your task here:</label>
+            <input type="text" v-model="newTask">
+            <p v-bind:style="infoColor"><em>{{info}}</em></p>
+            <button @click="add">Add Task</button>
+        </div>
+        <h2>My Tasks</h2>
+        <div v-if="tasks.length==0">
+            <h4>There are no tasks added yet.</h4>
+        </div>
+        <div v-else>
+            <ul>
+                <li v-for="(task,index) in tasks">
+                    <span :class="{done:task.completed}">{{task.taskname}}</span>
+                    <button v-if="!task.completed" @click="markComplete(index) ">Done</button>
+                    <button v-show="!task.editing" @click="edit_task(index)">Edit</button>
+                    <input type="text" v-show="task.editing" v-model="editing_task">
+                    <button v-show="task.editing" @click="edit_complete(index)">Submit Edit</button>
+                    <button @click="delete_task(index)" v-show="!task.editing">Delete</button>
+                </li>
+            </ul>
+        </div>
+    <h3>Created Tasks:{{created}}</h3>
+    <h3>Completed Tasks:{{completed_tasks}}</h3>
+    <h3>Pending Tasks:{{pending}}</h3>
+    </div>
+</body>
+<script type="text/javascript" src="application.js"></script>
+</html>
