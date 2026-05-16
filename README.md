@@ -17,11 +17,17 @@ The app focuses on simplicity while still providing a smooth and dynamic user ex
 The application acts as a personal productivity assistant where users can:
 
 ✅ Add new tasks
+
 ✅ Mark tasks as completed
+
 ✅ Edit existing tasks
+
 ✅ Delete tasks
+
 ✅ Track completed and pending work automatically
+
 ✅ Receive live validation feedback while typing tasks
+
 
 It is designed to make task management simple, fast, and visually interactive.
 
